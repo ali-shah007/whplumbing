@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+# robots.txt for WHPlumbing
+
+# Allow all crawlers access to everything
+User-agent: *
+
+
+
+
+

@@ -1,0 +1,36 @@
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 1rem; /* Add consistent spacing between items */
+  animation: scroll 60s linear infinite; /* Default animation for larger screens */
+}
+
+/* Adjust animation speed for smaller screens */
+@media (max-width: 768px) { /* You can adjust this breakpoint based on your design */
+  .marquee-content {
+    animation: scroll 20s linear infinite; /* Faster scrolling on smaller screens */
+  }
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.marquee-item:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover for interactivity */
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0); /* Start position */
+  }
+  to {
+    transform: translateX(-500%); /* Move completely out of view */
+  }
+}
