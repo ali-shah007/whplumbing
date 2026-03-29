@@ -12,9 +12,9 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <img
-            src="/logo512.png"
+            src="/logo2.png"
             alt="WH Plumbing Logo"
-            className="w-10 h-10 object-contain"
+            className="w-20 h-auto object-contain"
           />
           <h1 className="text-lg md:text-xl font-semibold tracking-wide">
             WH Plumbing

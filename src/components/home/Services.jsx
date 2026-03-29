@@ -4,17 +4,17 @@ const services = [
   {
     title: "Boiler Service",
     desc: "Keep your boiler running efficiently with regular servicing.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952",
+    image: "/11.png",
   },
   {
     title: "Boiler Repair",
     desc: "Fast and reliable repair services when your boiler breaks.",
-    image: "https://images.unsplash.com/photo-1600566752227-8f3b4d7d8f50",
+    image: "/22.jpg",
   },
   {
     title: "New Boiler",
     desc: "Upgrade to energy-efficient systems with expert installation.",
-    image: "https://images.unsplash.com/photo-1599423300746-b62533397364",
+    image: "/33.png",
   },
 ];
 
@@ -45,7 +45,7 @@ const Services = () => {
                 <img
                   src={`${s.image}?auto=format&fit=crop&w=800&q=80`}
                   alt={s.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                  className="w-full h-[300px] object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>
 

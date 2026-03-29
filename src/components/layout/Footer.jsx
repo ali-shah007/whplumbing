@@ -5,15 +5,22 @@ const Footer = () => {
     <footer className="bg-gradient-to-b from-black to-gray-900 text-white pt-16 pb-8 px-6">
       
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
-        
+
         {/* Brand */}
         <div>
-          <h3 className="text-xl font-semibold mb-3">WH Plumbing</h3>
+          <div className="flex items-center gap-2 mb-3">
+            <img 
+              src="/logo2.png" 
+              alt="WH Plumbing Logo" 
+              className="w-20 h-20 object-contain"
+            />
+            <h3 className="text-xl font-semibold">WH Plumbing</h3>
+          </div>
+
           <p className="text-gray-400 mb-4">
             Professional heating services you can trust. Reliable, fast, and affordable solutions.
           </p>
 
-          {/* Small Trust Line */}
           <p className="text-sm text-gray-500">
             ✔ Certified Engineers <br />
             ✔ 24/7 Emergency Service
@@ -45,7 +52,6 @@ const Footer = () => {
           <h3 className="font-semibold mb-3">Contact</h3>
 
           <div className="space-y-3 text-gray-400">
-            
             <div className="flex items-center gap-2 hover:text-white transition">
               <Phone size={16} />
               <span>+971 55 771 1247</span>
@@ -62,6 +68,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
       </div>
 
       {/* Divider */}
