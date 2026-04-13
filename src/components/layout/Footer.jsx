@@ -14,7 +14,14 @@ const Footer = () => {
               alt="WH Plumbing Logo" 
               className="w-20 h-20 object-contain"
             />
-            <h3 className="text-xl font-semibold">WH Plumbing</h3>
+            <div>
+              <h1 className="text-xl md:text-xl font-bold tracking-wide">
+                Wheatley Heating
+              </h1>
+              <h1 className="text-xl md:text-xl font-bold tracking-wide">
+                Plumbing Solutions
+              </h1>
+          </div>
           </div>
 
           <p className="text-gray-400 mb-4">

@@ -16,9 +16,15 @@ const Navbar = () => {
             alt="WH Plumbing Logo"
             className="w-20 h-auto object-contain"
           />
-          <h1 className="text-lg md:text-xl font-semibold tracking-wide">
-            WH Plumbing
-          </h1>
+          <div>
+            <h1 className="text-xl md:text-xl font-bold tracking-wide">
+              Wheatley Heating
+            </h1>
+            <h1 className="text-xl md:text-xl font-bold tracking-wide">
+              Plumbing Solutions
+            </h1>
+          </div>
+          
         </div>
 
         {/* Desktop Links */}
