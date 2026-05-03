@@ -115,9 +115,14 @@ const FAQ = () => {
             Still have questions? We're here to help.
           </p>
 
-          <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition">
+          <a
+            href="https://wa.me/447447712847?text=Hi%2C%20I%20have%20a%20question%20about%20boiler%20service"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition"
+          >
             Contact Us
-          </button>
+          </a>
         </div>
 
       </div>

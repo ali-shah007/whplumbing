@@ -63,21 +63,29 @@ const Included = () => {
             return (
               <div
                 key={i}
-                className="group bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 text-left"
+                className="group bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 border border-gray-100"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-purple-100 text-purple-600 mb-4 group-hover:scale-110 transition">
-                  <Icon size={48} />
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl 
+                  bg-gradient-to-br from-orange-100 to-orange-200 
+                  text-orange-600 mb-4 
+                  group-hover:from-orange-500 group-hover:to-orange-600 
+                  group-hover:text-white 
+                  transition-all duration-300 shadow-sm">
+                  <Icon size={26} />
                 </div>
 
                 {/* Content */}
-                <h3 className="font-semibold text-lg mb-2">
+                <h3 className="font-semibold text-lg mb-2 text-gray-800">
                   {item.title}
                 </h3>
 
                 <p className="text-gray-500 text-sm">
                   {item.desc}
                 </p>
+
+                {/* Accent Line */}
+                <div className="mt-4 h-1 w-10 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full group-hover:w-16 transition-all duration-300"></div>
               </div>
             );
           })}

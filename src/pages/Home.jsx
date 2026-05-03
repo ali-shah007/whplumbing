@@ -16,8 +16,9 @@ function Home() {
       <Hero/>
       <Trust />
       <Services />
-      <Reviews />
+      
       <CTA />
+      <Reviews />
     
     </div>
   );

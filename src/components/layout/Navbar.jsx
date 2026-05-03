@@ -1,74 +1,116 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // install: npm install lucide-react
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Flame } from "lucide-react";
+
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Boiler Service", path: "/boiler-service" },
+  { name: "Boiler Repair", path: "/boiler-repair" },
+  { name: "New Boiler", path: "/new-boiler" },
+  { name: "Contact", path: "/contact" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   return (
-    <nav className="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-[#0B2D4D]/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3 group">
           <img
             src="/logo2.png"
-            alt="WH Plumbing Logo"
-            className="w-20 h-auto object-contain"
+            alt="Wheatley Heating Plumbing Solutions"
+            className="w-16 md:w-20 h-auto object-contain transition-transform group-hover:scale-105"
           />
-          <div>
-            <h1 className="text-xl md:text-xl font-bold tracking-wide">
+          <div className="leading-tight">
+            <h1 className="text-base md:text-lg font-bold tracking-wide text-[#0B2D4D]">
               Wheatley Heating
             </h1>
-            <h1 className="text-xl md:text-xl font-bold tracking-wide">
+            <h1 className="text-base md:text-lg font-bold tracking-wide text-[#123F67]">
               Plumbing Solutions
             </h1>
           </div>
-          
+        </Link>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-2">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  isActive
+                    ? "bg-[#0B2D4D] text-white shadow-md"
+                    : "text-[#0B2D4D] hover:text-[#F97316] hover:bg-[#F97316]/10"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </div>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
-          <Link className="hover:text-blue-600 transition" to="/">Home</Link>
-          <Link className="hover:text-blue-600 transition" to="/boiler-service">Boiler Service</Link>
-          <Link className="hover:text-blue-600 transition" to="/boiler-repair">Boiler Repair</Link>
-          <Link className="hover:text-blue-600 transition" to="/new-boiler">New Boiler</Link>
-          <Link className="hover:text-blue-600 transition" to="/contact">Contact</Link>
-        </div>
-
-        {/* CTA Button (Desktop) */}
+        {/* Desktop Call CTA */}
         <div className="hidden md:block">
-          <Link
-            to="/contact"
-            className="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition shadow"
+          <a
+            href="tel:+447447712847"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white px-5 py-2.5 rounded-full font-medium shadow-lg hover:scale-105 transition-all duration-300"
           >
-            Get Quote
-          </Link>
+            <Flame size={16} />
+            Call Now
+          </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={26} /> : <Menu size={26} />}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 rounded-full bg-[#0B2D4D]/5 text-[#0B2D4D] hover:bg-[#F97316]/10 hover:text-[#F97316] transition"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4">
-          <Link onClick={() => setIsOpen(false)} className="block" to="/">Home</Link>
-          <Link onClick={() => setIsOpen(false)} className="block" to="/boiler-service">Boiler Service</Link>
-          <Link onClick={() => setIsOpen(false)} className="block" to="/boiler-repair">Boiler Repair</Link>
-          <Link onClick={() => setIsOpen(false)} className="block" to="/new-boiler">New Boiler</Link>
-          <Link onClick={() => setIsOpen(false)} className="block" to="/contact">Contact</Link>
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-[#0B2D4D]/10 px-6 py-5 shadow-lg">
+          <div className="flex flex-col gap-2">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
 
-          <Link
-            to="/contact"
-            className="block text-center bg-blue-600 text-white py-2 rounded-full"
-          >
-            Get Quote
-          </Link>
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition ${
+                    isActive
+                      ? "bg-[#0B2D4D] text-white"
+                      : "text-[#0B2D4D] hover:bg-[#F97316]/10 hover:text-[#F97316]"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+
+            {/* Mobile Call CTA */}
+            <a
+              href="tel:+447447712847"
+              onClick={() => setIsOpen(false)}
+              className="mt-3 flex items-center justify-center gap-2 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white py-3 rounded-xl font-medium shadow-md"
+            >
+              <Flame size={16} />
+              Call Now
+            </a>
+          </div>
         </div>
       )}
     </nav>

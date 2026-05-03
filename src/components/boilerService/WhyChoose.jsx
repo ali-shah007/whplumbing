@@ -27,20 +27,24 @@ const WhyChoose = () => {
         {/* LEFT IMAGE */}
         <div className="relative">
           <img
-            src="/why.jpg" // 👉 add this image in public folder
+            src="/why.jpg"
             alt="Why Choose Us"
             className="rounded-2xl shadow-2xl w-full object-cover"
           />
 
+          {/* Glow Accent */}
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-orange-500/20 blur-3xl rounded-full"></div>
+
           {/* Floating Badge */}
-          <div className="absolute -bottom-5 left-5 bg-white px-4 py-3 rounded-xl shadow-lg text-sm font-semibold">
-            ⭐ Trusted by Local Customers
+          <div className="absolute -bottom-5 left-5 bg-white px-5 py-3 rounded-xl shadow-lg text-sm font-semibold flex items-center gap-2">
+            <span className="text-orange-500">★</span>
+            Trusted by Local Customers
           </div>
         </div>
 
         {/* RIGHT CONTENT */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
             Why Choose Wheatley Plumbing & Heating?
           </h2>
 
@@ -55,17 +59,29 @@ const WhyChoose = () => {
               return (
                 <div
                   key={i}
-                  className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition"
+                  className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 border border-gray-100"
                 >
                   {/* Icon */}
-                  <div className="w-12 h-12 flex items-center justify-center bg-purple-100 text-purple-600 rounded-lg">
-                    <Icon size={48} />
+                  <div className="w-12 h-12 flex items-center justify-center rounded-lg 
+                    bg-gradient-to-br from-orange-100 to-orange-200 
+                    text-orange-600 
+                    group-hover:from-orange-500 group-hover:to-orange-600 
+                    group-hover:text-white 
+                    transition-all duration-300">
+                    <Icon size={26} />
                   </div>
 
                   {/* Text */}
                   <div>
-                    <h3 className="font-semibold mb-1">{item.title}</h3>
-                    <p className="text-gray-500 text-sm">{item.desc}</p>
+                    <h3 className="font-semibold mb-1 text-gray-800">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm">
+                      {item.desc}
+                    </p>
+
+                    {/* Accent Line */}
+                    <div className="mt-2 h-1 w-10 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full"></div>
                   </div>
                 </div>
               );

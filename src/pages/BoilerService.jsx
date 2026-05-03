@@ -4,7 +4,6 @@ import Process from "../components/boilerService/Process";
 import Included from "../components/boilerService/Included";
 import WhyChoose from "../components/boilerService/WhyChoose";
 import FAQ from "../components/boilerService/FAQ";
-import CTA from "../components/boilerService/CTA";
 import Trust from "../components/home/Trust";
 
 const BoilerService = () => {
@@ -16,7 +15,6 @@ const BoilerService = () => {
       <Included />
       <WhyChoose />
       <FAQ />
-      <CTA />
     </>
   );
 };
