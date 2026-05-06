@@ -21,7 +21,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <img
-            src="/logo2.png"
+            src="/logo2.webp"
             alt="Wheatley Heating Plumbing Solutions"
             className="w-14 md:w-18 h-auto object-contain transition-transform group-hover:scale-105"
           />
