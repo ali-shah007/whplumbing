@@ -23,6 +23,7 @@ const Navbar = () => {
           <img
             src="/logo2.webp"
             alt="Wheatley Heating Plumbing Solutions"
+            loading="lazy"
             className="w-14 md:w-18 h-auto object-contain transition-transform group-hover:scale-105"
           />
           <div className="leading-tight">
