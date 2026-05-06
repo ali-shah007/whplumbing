@@ -23,7 +23,7 @@ const Navbar = () => {
           <img
             src="/logo2.png"
             alt="Wheatley Heating Plumbing Solutions"
-            className="w-16 md:w-20 h-auto object-contain transition-transform group-hover:scale-105"
+            className="w-14 md:w-18 h-auto object-contain transition-transform group-hover:scale-105"
           />
           <div className="leading-tight">
             <h1 className="text-base md:text-lg font-bold tracking-wide text-[#0B2D4D]">
