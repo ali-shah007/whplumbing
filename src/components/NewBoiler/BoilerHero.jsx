@@ -2,15 +2,19 @@
 import { Phone, ArrowRight, ShieldCheck } from "lucide-react";
 
 const BoilerHero = () => {
+  const whatsappMessage = encodeURIComponent(
+    "Hi, I would like to get a fixed price quote for a new boiler installation."
+  );
+
+  const whatsappLink = `https://wa.me/447447712847?text=${whatsappMessage}`;
+
   return (
     <section className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white py-24 px-6 overflow-hidden">
-
       {/* Glow Effects */}
       <div className="absolute top-0 left-1/3 w-72 h-72 bg-orange-500/20 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-600/20 blur-3xl rounded-full"></div>
 
       <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-
         {/* LEFT */}
         <div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
@@ -21,23 +25,34 @@ const BoilerHero = () => {
           </h1>
 
           <p className="text-gray-300 mb-8 max-w-lg">
-            Upgrade to a modern, energy-efficient boiler with expert installation. 
-            Enjoy lower energy bills, reliable heating, and long-term peace of mind.
+            Upgrade to a modern, energy-efficient boiler with expert
+            installation. Enjoy lower energy bills, reliable heating, and
+            long-term peace of mind.
           </p>
 
           {/* Benefits */}
           <div className="grid grid-cols-2 gap-3 text-sm mb-10">
-            <span className="bg-white/5 border border-white/10 px-3 py-2 rounded-lg">🔥 Low installation cost</span>
-            <span className="bg-white/5 border border-white/10 px-3 py-2 rounded-lg">✔ Up to 12-year warranty</span>
-            <span className="bg-white/5 border border-white/10 px-3 py-2 rounded-lg">⭐ 5-star rated</span>
-            <span className="bg-white/5 border border-white/10 px-3 py-2 rounded-lg">⚡ Energy efficient</span>
+            <span className="bg-white/5 border border-white/10 px-3 py-2 rounded-lg">
+              🔥 Low installation cost
+            </span>
+            <span className="bg-white/5 border border-white/10 px-3 py-2 rounded-lg">
+              ✔ Up to 12-year warranty
+            </span>
+            <span className="bg-white/5 border border-white/10 px-3 py-2 rounded-lg">
+              ⭐ 5-star rated
+            </span>
+            <span className="bg-white/5 border border-white/10 px-3 py-2 rounded-lg">
+              ⚡ Energy efficient
+            </span>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-
             {/* Primary CTA */}
-            <button
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl 
               bg-gradient-to-r from-orange-500 to-orange-600 
               hover:from-orange-600 hover:to-orange-700 
@@ -45,11 +60,11 @@ const BoilerHero = () => {
             >
               Get Fixed Price Quote
               <ArrowRight size={18} />
-            </button>
+            </a>
 
             {/* Secondary CTA */}
             <a
-              href="tel:+971557711247"
+              href="tel:+447447712847"
               className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl 
               bg-white/10 hover:bg-white/20 border border-white/20 
               font-semibold transition"
@@ -57,7 +72,6 @@ const BoilerHero = () => {
               <Phone size={18} />
               Call Now
             </a>
-
           </div>
 
           {/* Trust Badge */}
@@ -80,15 +94,12 @@ const BoilerHero = () => {
 
           {/* Floating Card */}
           <div className="absolute -bottom-6 left-6 bg-white text-gray-800 px-5 py-4 rounded-xl shadow-xl max-w-xs">
-            <p className="text-sm font-semibold">
-              💡 Save on Energy Bills
-            </p>
+            <p className="text-sm font-semibold">💡 Save on Energy Bills</p>
             <p className="text-xs text-gray-500 mt-1">
               Modern boilers can cut your heating costs significantly.
             </p>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -22,6 +22,8 @@ const boilers = [
 ];
 
 const BoilerPackages = () => {
+  const phoneNumber = "447447712847"; // WhatsApp format (no +)
+
   return (
     <section className="py-24 px-6 bg-white text-center">
       <h2 className="text-4xl font-bold mb-4">Popular Boiler Options</h2>
@@ -31,36 +33,50 @@ const BoilerPackages = () => {
       </p>
 
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {boilers.map((b, i) => (
-          <div
-            key={i}
-            className="group bg-gray-50 rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
-          >
-            {/* Image */}
-            <div className="h-56 flex items-center justify-center bg-white">
-              <img
-                src={b.img}
-                alt={b.name}
-                className="h-44 object-contain group-hover:scale-105 transition duration-300"
-              />
+        {boilers.map((b, i) => {
+          const message = encodeURIComponent(
+            `Hi, I'm interested in the ${b.name} (${b.warranty}). Can you provide price, installation cost, and availability?`
+          );
+
+          const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+
+          return (
+            <div
+              key={i}
+              className="group bg-gray-50 rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
+            >
+              {/* Image */}
+              <div className="h-56 flex items-center justify-center bg-white">
+                <img
+                  src={b.img}
+                  alt={b.name}
+                  className="h-44 object-contain group-hover:scale-105 transition duration-300"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="p-6 text-left">
+                <h3 className="font-semibold text-lg mb-1">{b.name}</h3>
+
+                <p className="text-orange-500 text-sm mb-2 font-medium">
+                  {b.warranty}
+                </p>
+
+                <p className="text-gray-500 text-sm mb-4">{b.desc}</p>
+
+                {/* WhatsApp Button */}
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center bg-gradient-to-r from-orange-500 to-red-500 text-white py-2 rounded-lg font-medium hover:scale-105 transition"
+                >
+                  Get Price
+                </a>
+              </div>
             </div>
-
-            {/* Content */}
-            <div className="p-6 text-left">
-              <h3 className="font-semibold text-lg mb-1">{b.name}</h3>
-
-              <p className="text-orange-500 text-sm mb-2 font-medium">
-                {b.warranty}
-              </p>
-
-              <p className="text-gray-500 text-sm mb-4">{b.desc}</p>
-
-              <button className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-2 rounded-lg font-medium hover:scale-105 transition">
-                Get Price
-              </button>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

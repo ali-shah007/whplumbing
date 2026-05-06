@@ -2,6 +2,12 @@
 import { Phone, MessageCircle } from "lucide-react";
 
 const ContactHero = () => {
+  const whatsappMessage = encodeURIComponent(
+    "Hi, I need help with my boiler / heating system."
+  );
+
+  const whatsappLink = `https://wa.me/447447712847?text=${whatsappMessage}`;
+
   return (
     <section
       className="relative bg-fixed bg-center bg-cover text-white py-32 px-6 text-center overflow-hidden"
@@ -18,7 +24,6 @@ const ContactHero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl mx-auto">
-
         {/* Heading */}
         <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
           Get in Touch with{" "}
@@ -29,16 +34,15 @@ const ContactHero = () => {
 
         {/* Subtext */}
         <p className="text-gray-300 mb-10 max-w-xl mx-auto">
-          Need help with your boiler or heating system? 
-          Get fast support, expert advice, and a free quote — we’re here to help.
+          Need help with your boiler or heating system? Get fast support, expert
+          advice, and a free quote — we’re here to help.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex justify-center gap-4 flex-wrap mb-10">
-
           {/* Call Button */}
           <a
-            href="tel:07775067833"
+            href="tel:+447447712847"
             className="flex items-center gap-2 px-6 py-3 rounded-xl 
             bg-gradient-to-r from-orange-500 to-orange-600 
             hover:from-orange-600 hover:to-orange-700 
@@ -50,7 +54,9 @@ const ContactHero = () => {
 
           {/* WhatsApp Button */}
           <a
-            href="https://wa.me/447775067833"
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3 rounded-xl 
             bg-green-500 hover:bg-green-600 
             font-semibold shadow-lg hover:shadow-xl transition"
@@ -58,7 +64,6 @@ const ContactHero = () => {
             <MessageCircle size={18} />
             WhatsApp
           </a>
-
         </div>
 
         {/* Trust Strip */}
@@ -68,7 +73,6 @@ const ContactHero = () => {
           <span>✔ Local Experts</span>
           <span>✔ Friendly Support</span>
         </div>
-
       </div>
     </section>
   );

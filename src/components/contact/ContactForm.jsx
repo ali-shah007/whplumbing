@@ -1,7 +1,12 @@
-// components/contact/ContactForm.jsx
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+} from "lucide-react";
 
 const ContactForm = () => {
   const form = useRef();
@@ -15,10 +20,10 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",     // 👉 replace
-        "YOUR_TEMPLATE_ID",    // 👉 replace
+        "service_6c6m8of",
+        "template_bkj5vis",
         form.current,
-        "YOUR_PUBLIC_KEY"      // 👉 replace
+        "9n6-Mq8Wf1Ad27f-w"
       )
       .then(
         () => {
@@ -33,15 +38,24 @@ const ContactForm = () => {
       );
   };
 
+  const phoneNumber = "+447447712847";
+  const displayNumber = "07447 712847";
+
+  const whatsappMessage = encodeURIComponent(
+    "Hi, I would like to get a free quote for plumbing/heating services."
+  );
+
+  const whatsappLink = `https://wa.me/${phoneNumber.replace(
+    "+",
+    ""
+  )}?text=${whatsappMessage}`;
+
   return (
     <section className="relative py-24 px-6 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-
-      {/* Glow */}
       <div className="absolute top-0 left-1/3 w-72 h-72 bg-orange-500/10 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-600/10 blur-3xl rounded-full"></div>
 
       <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-
         {/* FORM */}
         <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
           <h2 className="text-2xl font-bold mb-2 text-gray-800">
@@ -52,7 +66,6 @@ const ContactForm = () => {
           </p>
 
           <form ref={form} onSubmit={sendEmail} className="space-y-4">
-
             <input
               type="text"
               name="user_name"
@@ -77,6 +90,29 @@ const ContactForm = () => {
               className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
             />
 
+            {/* SERVICE */}
+            <select
+              name="service"
+              required
+              className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
+            >
+              <option value="">Select Service</option>
+              <option>Boiler Repair</option>
+              <option>Boiler Installation</option>
+              <option>General Plumbing</option>
+              <option>Emergency Call</option>
+            </select>
+
+            {/* OFFER */}
+            <select
+              name="offer"
+              className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
+            >
+              <option value="">Any Offer?</option>
+              <option>Free Quote</option>
+              <option>10% Discount</option>
+            </select>
+
             <textarea
               name="message"
               placeholder="Describe your issue..."
@@ -88,16 +124,11 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 
-              bg-gradient-to-r from-orange-500 to-orange-600 
-              hover:from-orange-600 hover:to-orange-700 
-              text-white py-3 rounded-xl font-semibold 
-              shadow-lg hover:shadow-xl transition"
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition"
             >
               {loading ? "Sending..." : "Get Free Quote"}
             </button>
 
-            {/* Status Messages */}
             {status === "success" && (
               <p className="text-green-600 text-sm mt-2">
                 ✅ Message sent successfully!
@@ -119,12 +150,31 @@ const ContactForm = () => {
           </h2>
 
           <div className="space-y-6 text-gray-600">
-
             <div className="flex items-start gap-3">
               <Phone className="text-orange-500" />
               <div>
                 <h4 className="font-semibold text-gray-800">Phone</h4>
-                <p>07775 067833</p>
+                <a
+                  href={`tel:${phoneNumber}`}
+                  className="hover:text-orange-500"
+                >
+                  {displayNumber}
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <MessageCircle className="text-green-500" />
+              <div>
+                <h4 className="font-semibold text-gray-800">WhatsApp</h4>
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-green-600"
+                >
+                  Chat on WhatsApp
+                </a>
               </div>
             </div>
 
@@ -132,7 +182,12 @@ const ContactForm = () => {
               <Mail className="text-blue-500" />
               <div>
                 <h4 className="font-semibold text-gray-800">Email</h4>
-                <p>info@wheatleyplumbing.co.uk</p>
+                <a
+                  href="mailto:info@whplumbing.co.uk"
+                  className="hover:text-blue-600"
+                >
+                  info@whplumbing.co.uk
+                </a>
               </div>
             </div>
 
@@ -151,15 +206,12 @@ const ContactForm = () => {
                 <p>24/7 Emergency Service Available</p>
               </div>
             </div>
-
           </div>
 
-          {/* Extra Trust */}
           <div className="mt-10 text-sm text-gray-500">
             ✔ Fast response • ✔ Free quotes • ✔ Trusted local engineers
           </div>
         </div>
-
       </div>
     </section>
   );

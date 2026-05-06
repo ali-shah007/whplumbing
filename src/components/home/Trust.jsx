@@ -26,17 +26,25 @@ const Trust = () => {
 
         {/* Marquee */}
         <div className="w-full overflow-hidden">
-          <div className="flex flex-row whitespace-nowrap animate-marquee gap-10">
+          <div className="flex whitespace-nowrap animate-marquee gap-6 md:gap-10">
             
             {[...partners, ...partners].map((p, i) => (
               <div
                 key={i}
-                className="inline-flex items-center justify-center bg-white px-6 py-4 rounded-xl shadow-sm h-20 min-w-[150px]"
+                className="
+                  inline-flex items-center justify-center 
+                  bg-white rounded-xl shadow-sm
+                  h-14 min-w-[100px] px-4
+                  md:h-20 md:min-w-[150px] md:px-6
+                "
               >
                 <img
                   src={p.logo}
                   alt={p.name}
-                  className="max-h-10 max-w-[120px] object-contain"
+                  className="
+                    max-h-8 max-w-[80px] object-contain
+                    md:max-h-10 md:max-w-[120px]
+                  "
                 />
               </div>
             ))}
@@ -45,7 +53,7 @@ const Trust = () => {
         </div>
 
         {/* Trust Points */}
-        <div className="mt-12 flex flex-wrap justify-center gap-6 text-gray-600 text-sm">
+        <div className="mt-12 flex flex-wrap justify-center gap-4 md:gap-6 text-gray-600 text-sm">
           <span>✔ Gas Safe Registered</span>
           <span>✔ 24/7 Emergency Support</span>
           <span>✔ Fully Insured Engineers</span>
@@ -62,7 +70,13 @@ const Trust = () => {
           }
 
           .animate-marquee {
-            animation: marquee 25s linear infinite;
+            animation: marquee 20s linear infinite;
+          }
+
+          @media (min-width: 768px) {
+            .animate-marquee {
+              animation: marquee 25s linear infinite;
+            }
           }
         `}
       </style>

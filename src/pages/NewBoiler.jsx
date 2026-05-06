@@ -1,7 +1,6 @@
 // pages/NewBoiler.jsx
 
 import FAQ from "../components/boilerService/FAQ";
-import BoilerCTA from "../components/NewBoiler/BoilerCTA";
 import BoilerHero from "../components/NewBoiler/BoilerHero";
 import BoilerIncluded from "../components/NewBoiler/BoilerIncluded";
 import BoilerPackages from "../components/NewBoiler/BoilerPackages";
@@ -21,7 +20,6 @@ const NewBoiler = () => {
       <BoilerIncluded />
       
       <FAQ />
-      <BoilerCTA />
       
       
     </>
